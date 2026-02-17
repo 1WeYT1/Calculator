@@ -20,5 +20,10 @@
    <img width="551" height="271" alt="image" src="https://github.com/user-attachments/assets/65131f8b-d0cc-46e5-af34-37634c1f338f" />
 
 9. После того как вы перешли в папку с программой введите команду "py Calculator.py"
-    
-11. Дальше выбираете какой вариант вам нужен решаете цифры.
+    <img width="407" height="295" alt="image" src="https://github.com/user-attachments/assets/5de3a07e-f079-4f4f-bc8c-37e98ac4424b" />
+
+11. Дальше выбираете какой вариант вам нужен например варинт 2 (вычитание)
+    <img width="417" height="424" alt="image" src="https://github.com/user-attachments/assets/b60a6003-48f6-46f4-a79b-4df6c407695b" />
+12. После завршения операции вы можете продолжить пользоваться калькулятором нажав "д\н"
+    <img width="518" height="297" alt="image" src="https://github.com/user-attachments/assets/d93f8b1c-db10-442e-9255-100a2916aae2" />
+
