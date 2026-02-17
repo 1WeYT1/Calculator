@@ -13,8 +13,12 @@
 3. Выберите **"Download ZIP"**
    <img width="394" height="293" alt="image" src="https://github.com/user-attachments/assets/5468513a-7405-490c-9bc3-cfa5bf24169f" />
 
-5. Распакуйте скачанный архив в любую папку на компьютере или рабочий стол
+5. Распакуйте скачанный архив в любую папку на компьютере
+<img width="476" height="634" alt="image" src="https://github.com/user-attachments/assets/fa411f1e-93fb-4bdf-a998-69b590113d69" />
+
 7. Запустите CMD или PowerShell, Введите путь до папки с программой "cd C:\Users\..."
-   
+   <img width="551" height="271" alt="image" src="https://github.com/user-attachments/assets/65131f8b-d0cc-46e5-af34-37634c1f338f" />
+
 9. После того как вы перешли в папку с программой введите команду "py Calculator.py"
-10. Дальше выбираете какой вариант вам нужен решаете цифры.
+    
+11. Дальше выбираете какой вариант вам нужен решаете цифры.
