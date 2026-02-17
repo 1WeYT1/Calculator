@@ -1,0 +1,26 @@
+[MAIN]
+# Максимальная длина строки
+max-line-length=100
+
+# Игнорировать определенные правила
+disable=
+    C0114,  # missing-module-docstring
+    C0115,  # missing-class-docstring
+    C0116,  # missing-function-docstring (у нас они есть!)
+    R0903,  # too-few-public-methods
+    W0703,  # broad-except
+    R0914,  # too-many-locals
+    R0915,  # too-many-statements
+
+[FORMAT]
+# Ожидаемый формат имен функций и переменных
+method-naming-style=snake_case
+function-naming-style=snake_case
+variable-naming-style=snake_case
+
+[DESIGN]
+# Максимальное количество аргументов функции
+max-args=5
+
+# Максимальная сложность функции
+max-complexity=10
