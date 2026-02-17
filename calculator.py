@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import math  # добавлено для квадратного корня
+
 def add(a, b):
     """
     Складывает два числа.
@@ -111,6 +113,26 @@ def mod(a, b):
         return "Ошибка: деление на ноль!"
     return a % b
 
+def square_root(a):
+    """
+    Вычисляет квадратный корень числа.
+    
+    Args:
+        a (float): Число для извлечения корня
+        
+    Returns:
+        float or str: Квадратный корень или сообщение об ошибке
+        
+    Example:
+        >>> square_root(16)
+        4.0
+        >>> square_root(-4)
+        'Ошибка: нельзя извлечь корень из отрицательного числа!'
+    """
+    if a < 0:
+        return "Ошибка: нельзя извлечь корень из отрицательного числа!"
+    return math.sqrt(a)
+
 def calculate():
     """
     Основная функция калькулятора с пользовательским интерфейсом.
@@ -124,12 +146,15 @@ def calculate():
     print("4. Деление")
     print("5. Возведение в степень")
     print("6. Остаток от деления")
+    print("7. Квадратный корень")
     
     choice = input("Выберите операцию: ")
     
     try:
         a = float(input("Введите первое число: "))
-        b = float(input("Введите второе число: "))
+        # Для квадратного корня нужно только одно число
+        if choice != "7":
+            b = float(input("Введите второе число: "))
     except ValueError:
         print("Ошибка: введите числа!")
         return
@@ -146,6 +171,8 @@ def calculate():
         print(f"Результат: {power(a, b)}")
     elif choice == "6":
         print(f"Результат: {mod(a, b)}")
+    elif choice == "7":
+        print(f"Результат: {square_root(a)}")
     else:
         print("Неверный выбор")
 
