@@ -10,8 +10,8 @@
 1. Зайдите на страницу проекта: `https://github.com/1WeYT1/Calculator`
 2. Нажмите зеленую кнопку **"Code"**
 <img width="921" height="515" alt="image" src="https://github.com/user-attachments/assets/76ec157b-e3ed-476c-a094-af1fb2f56978" />
-3. Выберите **"Download ZIP"**
 <img width="394" height="293" alt="image" src="https://github.com/user-attachments/assets/5468513a-7405-490c-9bc3-cfa5bf24169f" />
+3. Выберите **"Download ZIP"**
 5. Распакуйте скачанный архив в любую папку на компьютере
 6. 
 7. Запустите CMD или PowerShell
