@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI Pipeline with Coverage
 
 on:
   push:
@@ -23,11 +23,24 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pytest-cov  # добавляем покрытие
     
     - name: Проверить стиль кода с Pylint
       run: |
         pylint calculator.py --exit-zero
     
-    - name: Запустить тесты с pytest
+    - name: Запустить тесты с покрытием
       run: |
-        pytest test_calculator.py -v
+        pytest test_calculator.py --cov=calculator --cov-report=xml --cov-report=term-missing -v
+    
+    - name: Показать отчет о покрытии
+      run: |
+        echo "📊 Отчет о покрытии кода:"
+        python -c "import xml.etree.ElementTree as ET; tree = ET.parse('coverage.xml'); root = tree.getroot(); print(f'Покрыто: {root.attrib.get(\"line-rate\", \"0\")}%')"
+    
+    - name: Загрузить отчет в Codecov (опционально)
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        fail_ci_if_error: false
