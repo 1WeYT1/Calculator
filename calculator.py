@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import math  # добавлено для квадратного корня
+import math
 
 def add(a, b):
     """
@@ -138,43 +138,88 @@ def calculate():
     Основная функция калькулятора с пользовательским интерфейсом.
     
     Выводит меню, получает ввод от пользователя и выполняет выбранную операцию.
+    После каждой операции спрашивает, хочет ли пользователь продолжить.
     """
-    print("Простой калькулятор v1.0")
-    print("1. Сложение")
-    print("2. Вычитание")
-    print("3. Умножение")
-    print("4. Деление")
-    print("5. Возведение в степень")
-    print("6. Остаток от деления")
-    print("7. Квадратный корень")
-    
-    choice = input("Выберите операцию: ")
-    
-    try:
-        a = float(input("Введите первое число: "))
-        # Для квадратного корня нужно только одно число
-        if choice != "7":
-            b = float(input("Введите второе число: "))
-    except ValueError:
-        print("Ошибка: введите числа!")
-        return
-    
-    if choice == "1":
-        print(f"Результат: {add(a, b)}")
-    elif choice == "2":
-        print(f"Результат: {subtract(a, b)}")
-    elif choice == "3":
-        print(f"Результат: {multiply(a, b)}")
-    elif choice == "4":
-        print(f"Результат: {divide(a, b)}")
-    elif choice == "5":
-        print(f"Результат: {power(a, b)}")
-    elif choice == "6":
-        print(f"Результат: {mod(a, b)}")
-    elif choice == "7":
-        print(f"Результат: {square_root(a)}")
-    else:
-        print("Неверный выбор")
+    while True:
+        print("\n" + "="*40)
+        print("ПРОСТОЙ КАЛЬКУЛЯТОР v1.0")
+        print("="*40)
+        print("1. Сложение")
+        print("2. Вычитание")
+        print("3. Умножение")
+        print("4. Деление")
+        print("5. Возведение в степень")
+        print("6. Остаток от деления")
+        print("7. Квадратный корень")
+        print("0. Выход")
+        print("="*40)
+        
+        choice = input("Выберите операцию (0-7): ")
+        
+        # Выход из программы
+        if choice == "0":
+            print("\nСпасибо за использование калькулятора! До свидания!")
+            break
+        
+        # Проверка корректности выбора
+        if choice not in ["1", "2", "3", "4", "5", "6", "7"]:
+            print("\nОшибка: неверный выбор! Пожалуйста, выберите 0-7.")
+            input("\nНажмите Enter, чтобы продолжить...")
+            continue
+        
+        try:
+            # Для всех операций кроме корня нужно 2 числа
+            if choice == "7":
+                a = float(input("Введите число: "))
+                b = None  # не используется для корня
+            else:
+                a = float(input("Введите первое число: "))
+                b = float(input("Введите второе число: "))
+        except ValueError:
+            print("\nОшибка: введите числа! Используйте точку для дробных (например, 3.14)")
+            input("\nНажмите Enter, чтобы продолжить...")
+            continue
+        
+        # Выполнение операции
+        print("\n" + "-"*40)
+        if choice == "1":
+            result = add(a, b)
+            print(f"Результат: {a} + {b} = {result}")
+        elif choice == "2":
+            result = subtract(a, b)
+            print(f"Результат: {a} - {b} = {result}")
+        elif choice == "3":
+            result = multiply(a, b)
+            print(f"Результат: {a} * {b} = {result}")
+        elif choice == "4":
+            result = divide(a, b)
+            if isinstance(result, str):
+                print(f"Результат: {result}")
+            else:
+                print(f"Результат: {a} / {b} = {result}")
+        elif choice == "5":
+            result = power(a, b)
+            print(f"Результат: {a} ^ {b} = {result}")
+        elif choice == "6":
+            result = mod(a, b)
+            if isinstance(result, str):
+                print(f"Результат: {result}")
+            else:
+                print(f"Результат: {a} % {b} = {result}")
+        elif choice == "7":
+            result = square_root(a)
+            if isinstance(result, str):
+                print(f"Результат: {result}")
+            else:
+                print(f"Результат: √{a} = {result}")
+        print("-"*40)
+        
+        # Спрашиваем, хочет ли пользователь продолжить
+        print()
+        cont = input("Хотите выполнить другую операцию? (д/н): ").lower()
+        if cont not in ["д", "y", "yes", "да", "lf"]:
+            print("\nСпасибо за использование калькулятора! До свидания!")
+            break
 
 if __name__ == "__main__":
     calculate()
