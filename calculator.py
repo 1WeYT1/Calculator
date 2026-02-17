@@ -2,93 +2,152 @@
 # -*- coding: utf-8 -*-
 
 def add(a, b):
-    """Сложение двух чисел"""
+    """
+    Складывает два числа.
+    
+    Args:
+        a (float): Первое слагаемое
+        b (float): Второе слагаемое
+        
+    Returns:
+        float: Сумма a и b
+        
+    Example:
+        >>> add(5, 3)
+        8
+    """
     return a + b
 
 def subtract(a, b):
-    """Вычитание двух чисел (a - b)"""
+    """
+    Вычитает второе число из первого.
+    
+    Args:
+        a (float): Уменьшаемое
+        b (float): Вычитаемое
+        
+    Returns:
+        float: Разность a и b
+        
+    Example:
+        >>> subtract(10, 4)
+        6
+    """
     return a - b
 
 def multiply(a, b):
-    """Умножение двух чисел"""
+    """
+    Умножает два числа.
+    
+    Args:
+        a (float): Первый множитель
+        b (float): Второй множитель
+        
+    Returns:
+        float: Произведение a и b
+        
+    Example:
+        >>> multiply(6, 7)
+        42
+    """
     return a * b
 
 def divide(a, b):
-    """Деление двух чисел (a / b) с проверкой деления на ноль"""
+    """
+    Делит первое число на второе.
+    
+    Args:
+        a (float): Делимое
+        b (float): Делитель
+        
+    Returns:
+        float or str: Результат деления или сообщение об ошибке
+        
+    Example:
+        >>> divide(10, 2)
+        5.0
+        >>> divide(10, 0)
+        'Ошибка: деление на ноль!'
+    """
     if b == 0:
-        return "ОШИБКА: Деление на ноль невозможно!"
+        return "Ошибка: деление на ноль!"
     return a / b
 
-def get_number(prompt):
-    """Получение числа от пользователя с обработкой ошибок"""
-    while True:
-        try:
-            return float(input(prompt))
-        except ValueError:
-            print("Ошибка! Введите число (целое или дробное через точку).")
+def power(a, b):
+    """
+    Возводит число в степень.
+    
+    Args:
+        a (float): Основание
+        b (float): Показатель степени
+        
+    Returns:
+        float: Результат возведения в степень
+        
+    Example:
+        >>> power(2, 3)
+        8
+    """
+    return a ** b
 
-def print_menu():
-    """Вывод меню с доступными операциями"""
-    print("\n" + "="*40)
-    print("            ПРОСТОЙ КАЛЬКУЛЯТОР")
-    print("="*40)
-    print("Доступные операции:")
-    print("  1. Сложение (+)")
-    print("  2. Вычитание (-)")
-    print("  3. Умножение (*)")
-    print("  4. Деление (/)")
-    print("  5. Выход")
-    print("="*40)
+def mod(a, b):
+    """
+    Возвращает остаток от деления.
+    
+    Args:
+        a (float): Делимое
+        b (float): Делитель
+        
+    Returns:
+        float or str: Остаток от деления или сообщение об ошибке
+        
+    Example:
+        >>> mod(10, 3)
+        1
+        >>> mod(10, 0)
+        'Ошибка: деление на ноль!'
+    """
+    if b == 0:
+        return "Ошибка: деление на ноль!"
+    return a % b
 
-def main():
-    """Основная функция программы"""
-    while True:
-        # Показываем меню
-        print_menu()
-        
-        # Получаем выбор пользователя
-        choice = input("Выберите операцию (1-5): ").strip()
-        
-        # Выход из программы
-        if choice == '5':
-            print("\nСпасибо за использование калькулятора! До свидания!")
-            break
-        
-        # Проверка корректности выбора
-        if choice not in ['1', '2', '3', '4']:
-            print("\nОШИБКА: Неверный выбор! Пожалуйста, выберите 1-5.")
-            continue
-        
-        # Получаем числа от пользователя
-        print("\n" + "-"*20)
-        print("Введите числа:")
-        num1 = get_number("Первое число: ")
-        num2 = get_number("Второе число: ")
-        print("-"*20)
-        
-        # Выполняем выбранную операцию
-        if choice == '1':
-            result = add(num1, num2)
-            print(f"\nРезультат: {num1} + {num2} = {result}")
-        
-        elif choice == '2':
-            result = subtract(num1, num2)
-            print(f"\nРезультат: {num1} - {num2} = {result}")
-        
-        elif choice == '3':
-            result = multiply(num1, num2)
-            print(f"\nРезультат: {num1} * {num2} = {result}")
-        
-        elif choice == '4':
-            result = divide(num1, num2)
-            if isinstance(result, str):  # Если это сообщение об ошибке
-                print(f"\nРезультат: {result}")
-            else:
-                print(f"\nРезультат: {num1} / {num2} = {result}")
-        
-        # Ждем нажатия Enter перед продолжением
-        input("\nНажмите Enter, чтобы продолжить...")
+def calculate():
+    """
+    Основная функция калькулятора с пользовательским интерфейсом.
+    
+    Выводит меню, получает ввод от пользователя и выполняет выбранную операцию.
+    """
+    print("Простой калькулятор v1.0")
+    print("1. Сложение")
+    print("2. Вычитание")
+    print("3. Умножение")
+    print("4. Деление")
+    print("5. Возведение в степень")
+    print("6. Остаток от деления")
+    
+    choice = input("Выберите операцию: ")
+    
+    try:
+        a = float(input("Введите первое число: "))
+        b = float(input("Введите второе число: "))
+    except ValueError:
+        print("Ошибка: введите числа!")
+        return
+    
+    if choice == "1":
+        print(f"Результат: {add(a, b)}")
+    elif choice == "2":
+        print(f"Результат: {subtract(a, b)}")
+    elif choice == "3":
+        print(f"Результат: {multiply(a, b)}")
+    elif choice == "4":
+        print(f"Результат: {divide(a, b)}")
+    elif choice == "5":
+        print(f"Результат: {power(a, b)}")
+    elif choice == "6":
+        print(f"Результат: {mod(a, b)}")
+    else:
+        print("Неверный выбор")
 
-# Точка входа в программу
 if __name__ == "__main__":
-    main()
+    calculate()
