@@ -7,9 +7,10 @@
 ### Вариант 1: Скачать ZIP-архив (самый простой)
 1. Зайдите на страницу проекта: `https://github.com/1WeYT1/Calculator`
 2. Нажмите зеленую кнопку **"Code"**
-3. ![Uploading image.png…]()
 <img width="921" height="515" alt="image" src="https://github.com/user-attachments/assets/76ec157b-e3ed-476c-a094-af1fb2f56978" />
-4. 4. Выберите **"Download ZIP"**
+3. Выберите **"Download ZIP"**
+![Uploading image.png…]()
+
 5. Распакуйте скачанный архив в любую папку на компьютере
 6. Запустите CMD или PowerShell
 7. Введите путь до папки с программой "cd C:\Users\..."
